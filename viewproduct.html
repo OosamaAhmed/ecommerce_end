@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="icon" href="noon-logo-en.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="./js/main.js"></script>
+
+  <title> product </title>
+</head>
+<style>
+  .textinproduct {
+    text-align: center;
+    color: rgb(216, 21, 21);
+  }
+
+  .divpruductpage {
+    display: flex;
+    justify-content: center;
+  }
+</style>
+
+<body>
+  <div class="header">
+    <nav class="navbar">
+      <div style="flex: 3;">
+        <a href="noonhome.html"><img src="noon-logo-en.svg" width="85px" alt="noon"> </a>
+        <div class="search-container">
+          <form action="">
+            <input class="inputsearch" type="text" placeholder="What are you looking for?" name="search">
+            <div class="btnsubmit">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="nav-r">
+        <a href="#" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Sign up <i
+            class="fa fa-user"></i> </a>
+        <a href="#" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login <i
+            class="fa fa-sign-in"></i></a>
+        <a href="cart.html">Cart <i class="fa fa-shopping-cart"></i></a>
+      </div>
+    </nav>
+  </div>
+  <div class="view"> </div>
+
+
+
+
+  <script>
+    mydiv = document.querySelector(".view")
+    // return data 
+    id = location.search.split("?")[1]
+    console.log(id) // to check
+    function viewuswer() {
+      fetch("https://dummyjson.com/products/" + id).then(res => res.json())
+        .then(getuser)
+      console.log(id) //function of the main fetch
+    }
+
+    viewuswer()
+
+    function getuser(data) {
+      console.log(data.title)
+      mydiv.innerHTML = `<div style="border: 1px solid; padding: 20px;margin:15px">
+            <h1 class="textinproduct"> ${data.title}</h1>
+                <img src="${data.thumbnail}">                
+                <h2>${data.description}</h2>
+                <p class="price"> Price : ${data.price} <span style="color:red">$</span> </p>
+                    <h1>quantity</h1>
+                  <input type="number" min="1" value="1" /> 
+                        <button onclick="addtocart(${data.id})"> Add To Cart </button> 
+                </div>
+            `
+    }
+    function addtocart(id) {
+      alert(id)
+      console.log(localStorage.setItem("usercart", id))
+
+    }
+  </script>
+</body>
+
+</html>
+
+</html>

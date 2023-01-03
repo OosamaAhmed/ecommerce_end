@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="icon" href="noon-logo-en.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+
+  <title>noon</title>
+</head>
+
+<body>
+  <div class="header">
+    <nav class="navbar">
+    <div style="flex: 3;">
+      <a href="noonhome.html"><img src="noon-logo-en.svg" width="85px" alt="noon"> </a>
+      <div class="search-container">
+        <form action="">
+          <input class="inputsearch" type="text" placeholder="What are you looking for?" name="search">
+          <div class="btnsubmit">
+            <button id="srchbtn"  onclick="searchValue()">search</button>
+          </div>
+        </form>
+      </div>
+    </div>
+      <div class="nav-r">
+      <a href="#" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Sign up <i class="fa fa-user"></i> </a>
+      <a href="#" onclick="document.getElementById('id01').style.display='block'" style="width:auto;" >Login <i class="fa fa-sign-in"></i></a>
+      <a href="cart.html">Cart <i class="fa fa-shopping-cart" id="cartitem"></i></a>
+      </div>
+    </nav>
+  </div>
+<!-- login  form -->
+<div id="id01" class="modal">
+  <form class="modal-content animate" >
+ <h1>Wellcome Back .. Login Now !</h1>
+    <div class="containers">
+      <label for="uemail"><b>Email </b></label>
+      <input type="email" placeholder="Enter Your Email" name="uemail" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+        
+      <button class="loginbtn" type="submit">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+      <br>
+      <br>
+      <span> Don't have an account? <a href="#" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Sign Up</a></span>
+    </div>
+
+    <div class="containers">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw"><a href="#">Forgot password?</a></span>
+    </div>
+  </form>
+</div>
+
+<!-- end of login form  -->
+<!-- start sign up -->
+<div id="id02" class="modal">
+  <form class="modal-content animate">
+    <div class="containers">
+      <h1>Sign Up</h1>
+      <label for="uname"><b>User Name</b></label>
+      <input type="text" placeholder="Enter Your Name" name="email" required>
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+
+      <label for="psw-repeat"><b>Confirm Password</b></label>
+      <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+      
+      <label>
+        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+      </label>
+
+
+      <div class="clearfix">
+        <button type="submit" class="signupbtn">Sign Up</button>
+
+        <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- end of sign up -->
+
+  <!-- category bar  -->
+
+  <div class="nav1">
+    <button onmouseover="myFunction()" onmouseleave="myFunction()"  class="dropbtn" style="color: blue; font-weight: 700;">ALL CATEGORIES</button>
+    <div id="myDropdown" class="dropdown-content">
+      <a href="#">Mobile</a>
+      <a href="#">Clothes </a>
+      <a href="#">Electronics </a>
+    </div>
+    <a href="#">Mobile</a>
+    <a href="#">LabTop</a>
+
+    <a href="#">Electronics </a>
+  </div>
+  <!-- div for slider  -->
+  <div class="slideshow-container">
+    <div class="mySlides ">
+      <img src="en_dk_eg-hero-01.avif" style="width:100%">
+    </div>
+    <div class="mySlides ">
+      <img src="en_dk_eg-hero-banner-01 (1).avif" style="width:100%">
+    </div>
+    <div class="mySlides ">
+      <img src="en_dk_eg-hero-banner-01 (2).avif" style="width:100%">
+    </div>
+    <div class="mySlides ">
+      <img src="en_dk_eg-hero-banner-01.avif" style="width:100%">
+    </div>
+    <div class="mySlides ">
+      <img src="en_dk_eg-hero-banner-01 (3).avif" style="width:100%">
+    </div>
+    <div class="mySlides ">
+      <img src="en_dk_eg-hero-banner-01 (4).avif" style="width:100%">
+    </div>
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+  </div>
+  <!-- for api -->
+  <div id="mydiv" style="display: flex; flex-wrap: wrap;background-color: beige;">
+    <h1 style="text-align: center; padding: 10px;border-left:4px solid #f1c40f;margin: auto;">All CATEGORIES</h1>
+  </div>
+
+  <hr>
+
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item">
+        <button class="page-link" id="prevButton">Prev</button>
+      </li>
+      <li class="page-item">
+        <button class="page-link" id="nextButton">Next</button>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- footer -->
+<footer>
+<p>© 2022 noon. All Rights Reserved</p>
+<div class="social-icon">
+
+<a href="#" class="fa fa-facebook"></a>
+<a href="#" class="fa fa-twitter"></a>
+<a href="#" class="fa fa-google"></a>
+<a href="#" class="fa fa-linkedin"></a>
+
+</div>
+</footer>
+  <script src="./js/main.js"></script>
+  <script src="./js/jq.js"></script>
+
+</body>
+
+</html>
